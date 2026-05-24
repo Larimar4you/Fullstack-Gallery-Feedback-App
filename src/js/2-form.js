@@ -7,8 +7,8 @@ let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
   message: '',
 };
 
-form.email.value = formData.email;
-form.message.value = formData.message;
+form.email.value = formData.email || '';
+form.message.value = formData.message || '';
 
 form.addEventListener('input', event => {
   formData[event.target.name] = event.target.value.trim();
