@@ -6,11 +6,11 @@ uses the SimpleLightbox library to display full-size images in a modal window.
 
 ## Live Demo
 
-[View live project](https://larimar4you.github.io/lightbox-gallery/)
+[View live project](https://your-live-link-here)
 
 ## Repository
 
-[GitHub repository](https://github.com/Larimar4you/lightbox-gallery)
+[GitHub repository](https://github.com/your-username/your-repository-name)
 
 ## Preview
 
@@ -53,21 +53,12 @@ uses the SimpleLightbox library to display full-size images in a modal window.
 
 ### The gallery is rendered dynamically using JavaScript.
 
-```js
 const galleryContainer = document.querySelector('.gallery');
 
-galleryContainer.innerHTML = images
-  .map(
-    ({ preview, original, description }) => `
-      <li class="gallery-item">
-        <a class="gallery-link" href="${original}">
-          <img class="gallery-image" src="${preview}" alt="${description}" />
-        </a>
-      </li>
-    `
-  )
-  .join('');
-```
+galleryContainer.innerHTML = images .map( ({ preview, original, description })
+=>
+`       <li class="gallery-item">         <a class="gallery-link" href="${original}">           <img class="gallery-image" src="${preview}" alt="${description}" />         </a>       </li>     `
+) .join('');
 
 Each object from the images array is transformed into an HTML gallery item. The
 preview image is displayed on the page, while the original image is opened in
@@ -84,7 +75,8 @@ into the page using innerHTML. SimpleLightbox is initialized for all gallery
 links. When a user clicks an image, the full-size version opens in a modal
 window. Installation and Setup
 
-Clone the repository: git clone https://larimar4you.github.io/lightbox-gallery/
+Clone the repository: git clone
+https://github.com/Larimar4you/goit-advancedjs-hw-01
 
 Install dependencies: npm install Start the development server: npm run dev
 Build the project for production: npm run build Preview the production build:
