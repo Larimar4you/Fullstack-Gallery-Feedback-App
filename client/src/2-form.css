@@ -1,6 +1,32 @@
+.form-page {
+  width: 408px;
+  margin: 72px auto 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+
+  color: #e6395f;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  transition: color 250ms ease;
+}
+
+.back-link:hover,
+.back-link:focus {
+  color: #c9184a;
+}
+
 .feedback-form {
   width: 408px;
-  margin: 24px auto;
   padding: 24px;
 
   display: flex;

@@ -9,7 +9,104 @@
 @import url('./1-gallery.css');
 @import url('./2-form.css');
 
+/* Common components */
 
-/* Sections style */
+.home-page {
+  min-height: 100vh;
 
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 
+  padding: 24px;
+  background-color: #f7f7fb;
+}
+
+.home-card {
+  width: 100%;
+  max-width: 560px;
+  padding: 48px 40px;
+
+  text-align: center;
+
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(46, 47, 66, 0.12);
+}
+
+.home-title {
+  margin-bottom: 16px;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+
+  color: #2e2f42;
+}
+
+.home-text {
+  margin-bottom: 32px;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+
+  color: #6b6f80;
+}
+
+.home-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+  padding: 12px 20px;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+
+  color: #ffffff;
+  background-color: #4e75ff;
+
+  border-radius: 10px;
+
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.home-link:hover,
+.home-link:focus {
+  background-color: #6c8cff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 117, 255, 0.3);
+}
+
+@media screen and (max-width: 480px) {
+  .home-card {
+    padding: 36px 24px;
+  }
+
+  .home-title {
+    font-size: 28px;
+  }
+
+  .home-nav {
+    flex-direction: column;
+  }
+
+  .home-link {
+    width: 100%;
+  }
+}
