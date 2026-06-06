@@ -1,85 +1,233 @@
-# Image Gallery with SimpleLightbox
+# Fullstack Gallery Feedback App
 
-A responsive image gallery built with vanilla JavaScript.  
-The project dynamically renders gallery items from an array of image objects and
-uses the SimpleLightbox library to display full-size images in a modal window.
+A small fullstack JavaScript application with an interactive image gallery and a
+feedback form connected to a backend API and MongoDB database.
+
+The project started as a frontend gallery/form assignment and was extended into
+a fullstack app with Express, Mongoose, MongoDB, and real feedback saving.
 
 ## Live Demo
 
-[View live project](https://your-live-link-here)
+Frontend demo:
+
+[View live project](https://larimar4you.github.io/Fullstack-Gallery-Feedback-App/)
+
+> Note: the deployed GitHub Pages version shows the frontend. The backend API
+> runs locally and connects to MongoDB Atlas.
 
 ## Repository
 
-[GitHub repository](https://github.com/your-username/your-repository-name)
+[GitHub repository](https://github.com/Larimar4you/Fullstack-Gallery-Feedback-App)
 
 ## Preview
 
-![Project preview](./preview.png)
+![Preview](./preview.png)
 
 ## Features
 
-- Dynamic gallery rendering from a JavaScript data array
-- Responsive image grid layout
-- Full-size image preview on click
-- Modal lightbox functionality using SimpleLightbox
-- Image captions from the `alt` attribute
-- Clean and semantic HTML structure
-- Modern JavaScript syntax
-- Organized project structure
+- Responsive image gallery
+- Lightbox image preview with SimpleLightbox
+- Feedback form with localStorage draft saving
+- Form validation
+- Success and error notifications with iziToast
+- Express backend API
+- MongoDB Atlas database connection
+- Mongoose feedback model
+- REST API routes for feedback
+- Error handling middleware
+- CORS support
 
-## Technologies Used
+## Tech Stack
+
+### Frontend
 
 - HTML5
 - CSS3
 - JavaScript
-- SimpleLightbox
 - Vite
+- SimpleLightbox
+- iziToast
+- localStorage
+- Fetch API
+
+### Backend
+
+- Node.js
+- Express
+- MongoDB Atlas
+- Mongoose
+- dotenv
+- cors
+- http-errors
+- pino-http
+- nodemon
+
+## API Endpoints
+
+### Get all feedbacks
+
+```http
+GET /feedback
+```
+
+Returns all saved feedback messages from MongoDB.
+
+### Get feedback by ID
+
+```http
+GET /feedback/:feedbackId
+```
+
+Returns one feedback item by ID.
+
+### Create feedback
+
+```http
+POST /feedback
+```
+
+Request body:
+
+```json
+{
+  "email": "test@gmail.com",
+  "message": "Nice gallery!"
+}
+```
+
+### Update feedback
+
+```http
+PATCH /feedback/:feedbackId
+```
+
+### Delete feedback
+
+```http
+DELETE /feedback/:feedbackId
+```
 
 ## Project Structure
 
 ```txt
-.
-├── index.html
-├── src
-│   ├── main.js
-│   └── css
-│       └── styles.css
-├── package.json
-└── README.md
-
+Fullstack-Gallery-Feedback-App/
+├─ .github/
+├─ dist/
+├─ src/
+│  ├─ controllers/
+│  │  └─ feedbackController.js
+│  ├─ css/
+│  ├─ db/
+│  │  └─ connectMongoDB.js
+│  ├─ img/
+│  ├─ js/
+│  │  ├─ 1-gallery.js
+│  │  └─ 2-form.js
+│  ├─ middleware/
+│  │  ├─ errorHandler.js
+│  │  ├─ logger.js
+│  │  └─ notFoundHandler.js
+│  ├─ models/
+│  │  └─ feedback.js
+│  ├─ routes/
+│  │  └─ feedbackRoutes.js
+│  └─ server.js
+├─ 1-gallery.html
+├─ 2-form.html
+├─ index.html
+├─ package.json
+├─ README.md
+├─ preview.png
+└─ vite.config.js
 ```
 
-### Main Logic
+## Getting Started
 
-### The gallery is rendered dynamically using JavaScript.
+### 1. Clone the repository
 
-const galleryContainer = document.querySelector('.gallery');
+```bash
+git clone https://github.com/Larimar4you/Fullstack-Gallery-Feedback-App.git
+cd Fullstack-Gallery-Feedback-App
+```
 
-galleryContainer.innerHTML = images .map( ({ preview, original, description })
-=>
-`       <li class="gallery-item">         <a class="gallery-link" href="${original}">           <img class="gallery-image" src="${preview}" alt="${description}" />         </a>       </li>     `
-) .join('');
+### 2. Install dependencies
 
-Each object from the images array is transformed into an HTML gallery item. The
-preview image is displayed on the page, while the original image is opened in
-the lightbox after clicking.
+```bash
+npm install
+```
 
-SimpleLightbox is initialized after the gallery markup is added to the DOM:
+### 3. Create `.env` file
 
-const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt',
-captionDelay: 250, captionPosition: 'bottom', });
+Create a `.env` file in the root of the project:
 
-How It Works The script selects the gallery container from the DOM. The images
-array is mapped into a list of HTML elements. The generated markup is inserted
-into the page using innerHTML. SimpleLightbox is initialized for all gallery
-links. When a user clicks an image, the full-size version opens in a modal
-window. Installation and Setup
+```env
+PORT=3000
+MONGO_URL=your_mongodb_connection_string
+```
 
-Clone the repository: git clone
-https://github.com/Larimar4you/goit-advancedjs-hw-01
+Example:
 
-Install dependencies: npm install Start the development server: npm run dev
-Build the project for production: npm run build Preview the production build:
-npm run preview
+```env
+PORT=3000
+MONGO_URL=mongodb+srv://username:password@cluster0.mongodb.net/gallery-feedback-app?retryWrites=true&w=majority
+```
 
-### Created by Lara Kosta
+### 4. Run frontend
+
+```bash
+npm run dev
+```
+
+Frontend will be available at:
+
+```txt
+http://localhost:5173
+```
+
+### 5. Run backend
+
+Open a second terminal and run:
+
+```bash
+npm run server
+```
+
+Backend will be available at:
+
+```txt
+http://localhost:3000
+```
+
+## Test Feedback API
+
+You can test the API with curl:
+
+```bash
+curl -X POST http://localhost:3000/feedback \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"test@gmail.com","message":"Nice gallery!"}'
+```
+
+Then open:
+
+```txt
+http://localhost:3000/feedback
+```
+
+## What I Practiced
+
+- Working with Vite frontend project structure
+- DOM manipulation
+- Form state saving with localStorage
+- Sending data from frontend to backend using Fetch API
+- Creating an Express server
+- Connecting Node.js app to MongoDB Atlas
+- Creating Mongoose schemas and models
+- Building REST API routes
+- Handling errors with middleware
+- Organizing a small fullstack JavaScript project
+
+## Author
+
+Created by Lara Kosta — Fullstack Developer in progress with a focus on
+JavaScript, React, Backend development, and AI-powered automation.
