@@ -21,7 +21,10 @@ Frontend demo:
 
 ## Preview
 
-![Preview](./preview.png)
+The preview shows the feedback form successfully sending data from the frontend
+to the Express backend and saving it in MongoDB.
+
+![Fullstack Gallery Feedback App preview](./feedback-preview.png)
 
 ## Features
 
