@@ -1,0 +1,21 @@
+{
+  "name": "fullstack-gallery-feedback-client",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --base=/Fullstack-Gallery-Feedback-App/",
+    "preview": "vite preview"
+  },
+  "author": "Lara Kosta",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.17.0",
+    "izitoast": "^1.4.0",
+    "simplelightbox": "^2.14.3"
+  },
+  "devDependencies": {
+    "vite": "^5.4.6"
+  }
+}

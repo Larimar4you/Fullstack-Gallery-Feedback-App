@@ -1,5 +1,6 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import { createFeedback } from '../api/feedbackApi.js';
 
 const form = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
@@ -30,19 +31,7 @@ form.addEventListener('submit', async event => {
   }
 
   try {
-    const response = await fetch('http://localhost:3000/feedback', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to send feedback');
-    }
-
-    const savedFeedback = await response.json();
+    const savedFeedback = await createFeedback(formData);
 
     console.log('Saved feedback:', savedFeedback);
 
