@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/Fullstack-Gallery-Feedback-App/' : '/',
   define: {
-    global: {},
+    global: 'globalThis',
   },
   build: {
     sourcemap: true,
