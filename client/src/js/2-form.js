@@ -48,8 +48,9 @@ form.addEventListener('submit', async event => {
     console.error(error);
 
     iziToast.error({
-      title: 'Error',
-      message: 'Something went wrong. Please try again.',
+      title: 'Backend offline',
+      message:
+        'Live demo shows the frontend only. Run the backend locally to send feedback.',
       position: 'topRight',
     });
   }
